@@ -4,7 +4,9 @@
 
 
 def palindrome?(str)
-  # YOUR CODE HERE
+ # String#downcase
+ # String#gsub
+ # String#reverse
 end
 
 def count_words(str)
