@@ -1,4 +1,4 @@
-cs169
-=====
+CS169.1x from Berkeley
+======================
 
-cs169
+See https://www.edx.org/courses/BerkeleyX/CS169.1x/2013_Spring/courseware for info.
