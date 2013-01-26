@@ -4,8 +4,12 @@
 
 
 def palindrome?(str)
-    str_compare = str.reverse.downcase.gsub[/^a-z\s/, '']
-    if 
+    str_compare = str.reverse.downcase.gsub(/[^A-Za-z\s]/, '')
+    if str_compare = str.downcase.gsub(/[^A-Za-z\s]/, '')
+        return true
+    else
+        return false
+    end
 end
 
 def count_words(str)
