@@ -1,3 +1,10 @@
+# Part A: Write a method rps_game_winner that takes a two-element list and
+# behaves as follows: If the number of players is not equal to 2, raise
+# WrongNumberOfPlayersError.  If either player's strategy is something other
+# than "R", "P" or "S" (case-insensitive), raise NoSuchStrategyError.
+# Otherwise, return the name and move of the winning player. If both players
+# play the same move, the first player is the winner.
+
 class WrongNumberOfPlayersError < StandardError ; end
 class NoSuchStrategyError < StandardError ; end
 
@@ -5,36 +12,16 @@ def rps_game_winner(game)
   raise WrongNumberOfPlayersError unless game.length == 2
   raise NoSuchStrategyError unless /^[RPSrps]{1}$/.match(game[0][1])
   raise NoSuchStrategyError unless /^[RPSrps]{1}$/.match(game[1][1])
-  game[0][1].upcase!
-  game[1][1].upcase!
 
-  name01 = game[0][0]
-  name02 = game[1][0]
-  play_one = game[0][1]
-  play_two = game[1][1]
-  # Player One Rock
-  if play_one == 'R' && play_two == "R"
-    name01
-  elsif play_one == 'R' && play_two == "P"
-    name02
-  elsif play_one == 'R' && play_two == "S"
-    name01
-  # Player One Paper
-  elsif play_one == 'P' && play_two == "R"
-    name01
-  elsif play_one == 'P' && play_two == "P"
-    name01
-  elsif play_one == 'P' && play_two == "S"
-    name02
-  # Player One Scissors
-  elsif play_one == 'S' && play_two == "R"
-    name02
-  elsif play_one == 'S' && play_two == "P"
-    name02
-  elsif play_one == 'S' && play_two == "S"
-    name01
+  # We will receive these as [ ["Bob", "R"], ["Armando", "P"] ]
+  results = game[0][1].upcase + game[1][1].upcase
+
+  # There are nine possible combinations. In only three of these does Player
+  # Two win. Ties go to Player One.
+  if /^(RP|PS|SR)$/.match.results
+    game[0]
   else
-    name01
+    game[1]
   end
 end
 
@@ -45,5 +32,7 @@ end
 # Otherwise, return the name and move of the winning player. If both players
 # play the same move, the first player is the winner.
 
+#puts rps_game_winner([ ["Dave", "P"], ["Armando", "S"] ])
+#puts rps_game_winner([ ["Allen", "P"], ["Richard", "P"] ])
 #rps_game_winner [ ["Armando", "r"], ["Dave", "S"] ]
 #rps_game_winner [ ["Armando", "T"], ["Dave", "S"] ]
