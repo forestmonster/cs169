@@ -18,10 +18,10 @@ def rps_game_winner(game)
 
   # There are nine possible combinations. In only three of these does Player
   # Two win. Ties go to Player One.
-  if /^(RP|PS|SR)$/.match.results
-    game[0]
-  else
+  if /^(RP|PS|SR)$/.match(results)
     game[1]
+  else
+    game[0]
   end
 end
 
@@ -34,5 +34,5 @@ end
 
 #puts rps_game_winner([ ["Dave", "P"], ["Armando", "S"] ])
 #puts rps_game_winner([ ["Allen", "P"], ["Richard", "P"] ])
-#rps_game_winner [ ["Armando", "r"], ["Dave", "S"] ]
-#rps_game_winner [ ["Armando", "T"], ["Dave", "S"] ]
+#puts rps_game_winner [ ["Armando", "r"], ["Dave", "S"] ]
+#puts rps_game_winner [ ["Armando", "T"], ["Dave", "S"] ]
