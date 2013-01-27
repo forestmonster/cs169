@@ -10,7 +10,10 @@ def palindrome?(str)
 end
 
 def count_words(str)
-  # YOUR CODE HERE
+    array = str.downcase.gsub(/[^\w\s]/, '').split
+    count = Hash.new(0)
+    array.each { |x| count[x] += 1 }
+    count.inspect
 end
 
 
