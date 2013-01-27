@@ -14,27 +14,27 @@ def rps_game_winner(game)
   play_two = game[1][1]
   # Player One Rock
   if play_one == 'R' && play_two == "R"
-    puts name01
+    name01
   elsif play_one == 'R' && play_two == "P"
-    puts name02
+    name02
   elsif play_one == 'R' && play_two == "S"
-    puts name01
+    name01
   # Player One Paper
   elsif play_one == 'P' && play_two == "R"
-    puts name01
+    name01
   elsif play_one == 'P' && play_two == "P"
-    puts name01
+    name01
   elsif play_one == 'P' && play_two == "S"
-    puts name02
+    name02
   # Player One Scissors
   elsif play_one == 'S' && play_two == "R"
-    puts name02
+    name02
   elsif play_one == 'S' && play_two == "P"
-    puts name02
+    name02
   elsif play_one == 'S' && play_two == "S"
-    puts name01
+    name01
   else
-    puts name01
+    name01
   end
 end
 
