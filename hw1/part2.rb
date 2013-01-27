@@ -13,7 +13,7 @@ def rps_game_winner(game)
   raise NoSuchStrategyError unless /^[RPSrps]{1}$/.match(game[0][1])
   raise NoSuchStrategyError unless /^[RPSrps]{1}$/.match(game[1][1])
 
-  # We will receive these as [ ["Bob", "R"], ["Armando", "P"] ]
+  # We expect to receive these as [ ["Bob", "R"], ["Armando", "P"] ]
   results = game[0][1].upcase + game[1][1].upcase
 
   # There are nine possible combinations. In only three of these does Player
@@ -26,5 +26,11 @@ def rps_game_winner(game)
 end
 
 def rps_tournament_winner(tournament)
-  # YOUR CODE HERE
+  if tournament[0][0].is_a? String
+    rps_game_winner(tournament)
+  else
+    rps_tournament_winner(
+      [rps_tournament_winner(tournament[0]), rps_tournament_winner(tournament[1])]
+    )
+  end
 end
