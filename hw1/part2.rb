@@ -28,11 +28,3 @@ end
 def rps_tournament_winner(tournament)
   # YOUR CODE HERE
 end
-
-# Otherwise, return the name and move of the winning player. If both players
-# play the same move, the first player is the winner.
-
-#puts rps_game_winner([ ["Dave", "P"], ["Armando", "S"] ])
-#puts rps_game_winner([ ["Allen", "P"], ["Richard", "P"] ])
-#puts rps_game_winner [ ["Armando", "r"], ["Dave", "S"] ]
-#puts rps_game_winner [ ["Armando", "T"], ["Dave", "S"] ]
