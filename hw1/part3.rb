@@ -9,7 +9,7 @@
 # For each word in the array of words, sort it by character (case-
 # insensitively) into an enumerable, then join it back into a single
 # word.
-# Search for the word in your hash. Is it already there?
+# Search for the lowercase word in your hash. Is it already there?
 # If it isn't, initialize a new array, using the sorted letters
 # as a key, to point to the new array as a value. Otherwise continue.
 # Whether it is or isn't, assign the original word to the value arr.
@@ -17,19 +17,20 @@
 # Then reset arr to empty.
 
 def combine_anagrams(words)
-  hash = Hash.new
+  hash = {}
   words.each do |str|
      sorted = str.chars.sort { |a, b| a.casecmp(b) } .join
-     if (hash[sorted]== nil)
-       hash[sorted] = Array.new
+     down = sorted.downcase
+     if (hash[down]== nil)
+       hash[down] = Array.new
      end
-     arr = hash[sorted]
+     arr = hash[down]
      arr[arr.length] = str
-     hash[sorted] = arr
-     puts "[sorted] is \"" + sorted + ",\" and hash[sorted] is " + hash[sorted].inspect
+     hash[down] = arr
+#     puts "[sorted] is \"" + sorted + ",\" and hash[sorted] is " + hash[sorted].inspect
      arr = nil
   end
   hash.values
 end
 
-puts combine_anagrams(['cars', 'SArc', 'for', 'potatoes', 'racs', 'four', 'scar', 'creams', 'scream', 'hello', 'HeLLo']).inspect
+#puts combine_anagrams(['cars', 'SArc', 'for', 'potatoes', 'racs', 'four', 'scar', 'creams', 'scream', 'hello', 'HeLLo']).inspect
