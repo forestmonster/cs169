@@ -1,21 +1,17 @@
 class Dessert
   def initialize(name, calories)
-    # YOUR CODE HERE
+    @name = name
+    @calories = calories
   end
-  def name=(new_name)
-    @name = new_name
-  end
-  def calories=(new_calories)
-    @calories = new_calories
-  end
-  def name
-    @name
-  end
-  def calories
-    @calories
-  end
+
+  attr_accessor :name, :calories
+
   def healthy?
-    # YOUR CODE HERE
+    if @calories < 200
+        true
+    else
+        false
+    end
   end
   def delicious?
     true
