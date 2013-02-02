@@ -8,9 +8,7 @@ class Dessert
 
   def healthy?
     if @calories < 200
-        true
-    else
-        false
+      true
     end
   end
   def delicious?
@@ -20,9 +18,14 @@ end
 
 class JellyBean < Dessert
   def initialize(name, calories, flavor)
-    # YOUR CODE HERE
+    @name = name
+    @calories = calories
+    @flavor = flavor
   end
+
+  attr_accessor :flavor
+
   def delicious?
-    # YOUR CODE HERE
+      if @flavor == "black licorice"; false ; else true ; end
   end
 end
