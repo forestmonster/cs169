@@ -6,3 +6,14 @@ class Class
     class_eval "your code here, use %Q for multiline strings"
   end
 end
+
+def palindrome?(str)
+    forward = str.downcase.gsub(/[\W\s]/, '')
+    reverse = str.reverse.downcase.gsub(/[\W\s]/, '')
+    if forward == reverse
+        result = true
+    else
+        result = false
+    end
+    result
+end
